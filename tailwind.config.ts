@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				display: ['Playfair Display', 'serif'],
+				body: ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -52,6 +56,10 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				rose: 'hsl(var(--rose))',
+				blush: 'hsl(var(--blush))',
+				champagne: 'hsl(var(--champagne))',
+				midnight: 'hsl(var(--midnight))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +92,33 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'sparkle': {
+					'0%, 100%': { opacity: '0', transform: 'scale(0)' },
+					'50%': { opacity: '1', transform: 'scale(1)' }
+				},
+				'typewriter': {
+					'from': { width: '0' },
+					'to': { width: '100%' }
+				},
+				'blink': {
+					'0%, 50%': { borderColor: 'transparent' },
+					'51%, 100%': { borderColor: 'currentColor' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'sparkle': 'sparkle 1.5s ease-in-out infinite',
+				'typewriter': 'typewriter 2s steps(20) forwards, blink 0.7s infinite',
+			},
+			dropShadow: {
+				'glow': '0 0 20px hsl(var(--rose) / 0.3)',
 			}
 		}
 	},
