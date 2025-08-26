@@ -1,73 +1,201 @@
-# Welcome to your Lovable project
+# 🎂 Kinju's Birthday Microsite
 
-## Project info
+A stunning, romantic birthday celebration website built with love using React, TypeScript, and Framer Motion.
 
-**URL**: https://lovable.dev/projects/fc17f2e3-a16a-4ea0-9b23-04fd63129723
+## ✨ Features
 
-## How can I edit this code?
+- **Romantic Design**: Rose, blush, and champagne color palette with elegant typography
+- **Smooth Animations**: Framer Motion powered interactions and page transitions
+- **Interactive Elements**: 
+  - Confetti celebrations and fireworks
+  - Typewriter effects and floating hearts
+  - Smooth scrolling with Lenis
+  - Music toggle with visual effects
+- **Sections**:
+  - Hero with animated greeting
+  - Birthday countdown timer
+  - Nepali love letter with floating fireflies
+  - Animated poem with staggered reveals
+  - Memory lane photo gallery with timeline
+  - Interactive wish wall with local storage
+- **Responsive**: Mobile-first design that works beautifully on all devices
+- **Performance**: Optimized with lazy loading and efficient animations
 
-There are several ways of editing your application.
+## 🚀 Getting Started
 
-**Use Lovable**
+### Prerequisites
+- Node.js (version 16 or higher)
+- npm or yarn
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/fc17f2e3-a16a-4ea0-9b23-04fd63129723) and start prompting.
+### Installation
 
-Changes made via Lovable will be committed automatically to this repo.
+```bash
+# Clone the repository
+git clone <your-repository-url>
+cd kinju-birthday
 
-**Use your preferred IDE**
+# Install dependencies
+npm install
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Dependencies Installation (Alternative)
+If starting from scratch:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm create vite@latest kinju-birthday -- --template react-ts
+cd kinju-birthday
+npm i
+npm i -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+npm i framer-motion canvas-confetti lenis lottie-react react-use
+npm run dev
+```
 
-**Use GitHub Codespaces**
+## 🎨 Design System
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Color Palette
+- **Rose**: `#E11D48` - Primary romantic accent
+- **Blush**: `#FCE7F3` - Soft pink backgrounds
+- **Champagne**: `#F5E6C8` - Warm golden accents
+- **Midnight**: `#0F172A` - Deep text color
+- **Soft White**: `#FFFFFF` - Clean backgrounds
 
-## What technologies are used for this project?
+### Typography
+- **Display Font**: Playfair Display (headings)
+- **Body Font**: Inter (body text)
 
-This project is built with:
+### Key Design Elements
+- Glassmorphism cards with backdrop blur
+- Romantic gradients and soft shadows
+- Floating animations and particle effects
+- Rounded corners (rounded-2xl) throughout
+- Subtle grain texture overlay
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🎯 Key Components
 
-## How can I deploy this project?
+### Hero Section
+- Full-screen gradient background with floating elements
+- Typewriter effect for romantic subtitle
+- CTA buttons with smooth scroll navigation
+- Parallax effects and confetti triggers
 
-Simply open [Lovable](https://lovable.dev/projects/fc17f2e3-a16a-4ea0-9b23-04fd63129723) and click on Share -> Publish.
+### Countdown Timer
+- Animated flip digits showing time until birthday
+- Fireworks mode when it's the actual birthday
+- Celebration button with canvas-confetti effects
 
-## Can I connect a custom domain to my Lovable project?
+### Nepali Love Letter
+- Glass card with traditional Nepali birthday message
+- Interactive fireflies animation on hover
+- Elegant typography with cultural sensitivity
 
-Yes, you can!
+### Poem Section
+- Staggered animation reveals for each stanza
+- Floating heart decorations
+- Page-turn style transitions
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Memory Lane
+- Photo gallery with hover effects
+- Timeline showing daily moments
+- Masonry layout with smooth animations
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Wish Wall
+- Interactive form for adding birthday wishes
+- Local storage persistence
+- Spring physics animations for new wishes
+- Colorful sticky note design
+
+## 🎵 Music Integration
+
+The site includes a discrete music player:
+- Auto-muted on load (respecting user preferences)
+- Visual sound waves when playing
+- Volume controls with localStorage persistence
+- Fallback tone generation if audio files unavailable
+
+## 🎨 Animations & Effects
+
+### Framer Motion Variants
+- Orchestrated section reveals with `staggerChildren`
+- Hover effects and micro-interactions
+- Page transition animations
+- Spring physics for natural movement
+
+### Canvas Confetti
+- Multiple confetti styles (standard, hearts, fireworks)
+- Celebration triggers throughout the site
+- Performance-optimized particle effects
+
+### Easter Eggs
+- Press 'h' key for surprise heart burst
+- Hidden animations on component interactions
+- Sparkle effects on various elements
+
+## 📱 Responsive Design
+
+- Mobile-first approach with Tailwind CSS
+- Breakpoint-specific layouts and typography
+- Touch-friendly interactions
+- Optimized performance across devices
+
+## ⚡ Performance
+
+- Lazy loading for images and components
+- Efficient animation scheduling
+- Minimal bundle size with tree-shaking
+- Lighthouse score target: 95+ across all metrics
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+```bash
+npm run build
+# Deploy to Vercel via CLI or GitHub integration
+```
+
+### Other Platforms
+```bash
+npm run build
+# Upload dist/ folder to your hosting provider
+```
+
+## 🎁 Customization
+
+To customize for different occasions:
+
+1. **Colors**: Update CSS variables in `src/index.css`
+2. **Content**: Modify text in component files
+3. **Images**: Replace images in `src/assets/`
+4. **Animations**: Adjust Framer Motion variants
+5. **Typography**: Change font imports in `index.html`
+
+## 💖 Love Notes
+
+This site was hand-crafted with infinite love and attention to detail. Every animation, color choice, and interaction was designed to create a magical birthday experience that feels like a digital keepsake.
+
+The Nepali text is included with cultural respect and authenticity, celebrating the beautiful tradition of expressing love in one's native language.
+
+## 🔧 Tech Stack
+
+- **Frontend**: React 18, TypeScript, Vite
+- **Styling**: Tailwind CSS with custom design system
+- **Animations**: Framer Motion, CSS transitions
+- **Effects**: Canvas Confetti, Lenis smooth scroll
+- **Storage**: LocalStorage via react-use
+- **Icons**: Lucide React
+- **Build**: Vite with optimizations
+
+## 🤝 Contributing
+
+This is a personal project, but feel free to use it as inspiration for your own romantic web creations!
+
+## 📄 License
+
+Created with ❤️ for Kinju. Use with love and attribution.
+
+---
+
+*"You make ordinary moments feel like miracles."* ✨
