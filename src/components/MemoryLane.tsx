@@ -1,43 +1,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import memory1 from '@/assets/memory1.jpg';
+import memory2 from '@/assets/memory2.jpg';
+import memory3 from '@/assets/memory3.jpg';
+import memory4 from '@/assets/memory4.jpg';
 
 const MemoryLane: React.FC = () => {
   const memories = [
     {
-      date: 'January 2024',
-      caption: 'Our first coffee together ☕',
-      emoji: '☕',
+      caption: 'Our beautiful moments together 💕',
+      image: memory1,
       color: 'from-amber-200 to-orange-200'
     },
     {
-      date: 'March 2024', 
-      caption: 'That beautiful sunset walk 🌅',
-      emoji: '🌅',
+      caption: 'Looking into each other\'s eyes 👀',
+      image: memory2,
       color: 'from-orange-200 to-pink-200'
     },
     {
-      date: 'June 2024',
-      caption: 'Dancing in the rain 💃',
-      emoji: '💃',
+      caption: 'Making memories and having fun 😄',
+      image: memory3,
       color: 'from-blue-200 to-indigo-200'
     },
     {
-      date: 'August 2024',
-      caption: 'Our camping adventure 🏕️',
-      emoji: '🏕️',
+      caption: 'Always laughing together 😊',
+      image: memory4,
       color: 'from-green-200 to-emerald-200'
-    },
-    {
-      date: 'October 2024',
-      caption: 'Pumpkin picking together 🎃',
-      emoji: '🎃',
-      color: 'from-orange-200 to-red-200'
-    },
-    {
-      date: 'December 2024',
-      caption: 'And today we celebrate you! 🎂',
-      emoji: '🎂',
-      color: 'from-rose-200 to-pink-300'
     }
   ];
 
@@ -83,16 +71,17 @@ const MemoryLane: React.FC = () => {
                   >
                     {/* Memory content */}
                     <div className="relative z-10">
-                      <div className="text-sm text-foreground/60 font-body mb-2">
-                        {memory.date}
-                      </div>
                       <h3 className="text-xl font-semibold text-foreground mb-4 font-display">
                         {memory.caption}
                       </h3>
                       
-                      {/* Placeholder image */}
-                      <div className={`w-full h-40 bg-gradient-to-br ${memory.color} rounded-xl flex items-center justify-center text-4xl mb-4`}>
-                        {memory.emoji}
+                      {/* Real image */}
+                      <div className="w-full h-48 rounded-xl overflow-hidden mb-4">
+                        <img 
+                          src={memory.image} 
+                          alt={memory.caption}
+                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                        />
                       </div>
                     </div>
 
@@ -138,29 +127,6 @@ const MemoryLane: React.FC = () => {
           </div>
         </div>
 
-        {/* Photo gallery grid */}
-        <motion.div
-          className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          {Array.from({ length: 6 }, (_, i) => (
-            <motion.div
-              key={i}
-              className="aspect-square bg-gradient-to-br from-blush to-champagne rounded-2xl flex items-center justify-center text-3xl cursor-pointer"
-              whileHover={{ 
-                scale: 1.05,
-                rotateY: 10,
-                rotateX: 10
-              }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            >
-              {['📸', '💕', '🌟', '🎈', '🌺', '✨'][i]}
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

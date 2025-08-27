@@ -3,13 +3,10 @@ import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Lenis from 'lenis';
 import Hero from '@/components/Hero';
-import Countdown from '@/components/Countdown';
 import NepaliLetter from '@/components/NepaliLetter';
 import Poem from '@/components/Poem';
 import MemoryLane from '@/components/MemoryLane';
-import WishWall from '@/components/WishWall';
 import MusicToggle from '@/components/MusicToggle';
-import Footer from '@/components/Footer';
 import FloatingElements from '@/components/FloatingElements';
 
 const Index = () => {
@@ -60,11 +57,6 @@ const Index = () => {
       {/* Hero Section */}
       <Hero onNavigate={scrollToSection} />
 
-      {/* Countdown Section */}
-      <section id="countdown" className="py-20">
-        <Countdown />
-      </section>
-
       {/* Nepali Letter Section */}
       <section id="letter" className="py-20">
         <NepaliLetter />
@@ -79,14 +71,6 @@ const Index = () => {
       <section id="memories" className="py-20">
         <MemoryLane />
       </section>
-
-      {/* Wish Wall Section */}
-      <section id="wishes" className="py-20">
-        <WishWall />
-      </section>
-
-      {/* Footer */}
-      <Footer />
     </motion.div>
   );
 };
