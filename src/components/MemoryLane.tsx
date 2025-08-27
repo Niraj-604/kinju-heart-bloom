@@ -1,30 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import memory1 from '@/assets/memory1.jpg';
-import memory2 from '@/assets/memory2.jpg';
-import memory3 from '@/assets/memory3.jpg';
-import memory4 from '@/assets/memory4.jpg';
 
 const MemoryLane: React.FC = () => {
   const memories = [
     {
       caption: 'Our beautiful moments together 💕',
-      image: memory1,
+      image: '/lovable-uploads/8ba4a09f-5a2a-42b0-baa5-e672a4d7468a.png',
       color: 'from-amber-200 to-orange-200'
     },
     {
       caption: 'Looking into each other\'s eyes 👀',
-      image: memory2,
+      image: '/lovable-uploads/95289f9c-f226-4a86-8c4b-3e60cecb96ec.png',
       color: 'from-orange-200 to-pink-200'
     },
     {
       caption: 'Making memories and having fun 😄',
-      image: memory3,
+      image: '/lovable-uploads/871f03cd-bede-4ea2-aa31-9446b1ed0d72.png',
       color: 'from-blue-200 to-indigo-200'
     },
     {
       caption: 'Always laughing together 😊',
-      image: memory4,
+      image: '/lovable-uploads/89918645-cb08-4f86-9071-126361d43aef.png',
       color: 'from-green-200 to-emerald-200'
     }
   ];
