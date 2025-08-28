@@ -6,6 +6,7 @@ import Hero from '@/components/Hero';
 import NepaliLetter from '@/components/NepaliLetter';
 import Poem from '@/components/Poem';
 import MemoryLane from '@/components/MemoryLane';
+import Gallery from '@/components/Gallery';
 import MusicToggle from '@/components/MusicToggle';
 import FloatingElements from '@/components/FloatingElements';
 
@@ -70,6 +71,11 @@ const Index = () => {
       {/* Memory Lane Section */}
       <section id="memories" className="py-20">
         <MemoryLane />
+      </section>
+
+      {/* Gallery Section */}
+      <section id="gallery" className="py-20">
+        <Gallery />
       </section>
     </motion.div>
   );

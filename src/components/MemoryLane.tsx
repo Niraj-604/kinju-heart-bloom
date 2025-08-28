@@ -5,23 +5,18 @@ const MemoryLane: React.FC = () => {
   const memories = [
     {
       caption: 'Our beautiful moments together 💕',
-      image: '/lovable-uploads/8ba4a09f-5a2a-42b0-baa5-e672a4d7468a.png',
+      image: '/lovable-uploads/d1a8c8c1-2ece-4a16-8fb3-79dbcb8875a2.png',
       color: 'from-amber-200 to-orange-200'
     },
     {
-      caption: 'Looking into each other\'s eyes 👀',
-      image: '/lovable-uploads/95289f9c-f226-4a86-8c4b-3e60cecb96ec.png',
+      caption: 'Traditional celebration moments 🎉',
+      image: '/lovable-uploads/02cdbbc3-2f70-44bf-bbf9-8499b36aa0a7.png',
       color: 'from-orange-200 to-pink-200'
     },
     {
-      caption: 'Making memories and having fun 😄',
-      image: '/lovable-uploads/871f03cd-bede-4ea2-aa31-9446b1ed0d72.png',
+      caption: 'Sweet selfie memories 📸',
+      image: '/lovable-uploads/fbc2c807-b566-43e8-a99d-5e7f98b83b38.png',
       color: 'from-blue-200 to-indigo-200'
-    },
-    {
-      caption: 'Always laughing together 😊',
-      image: '/lovable-uploads/89918645-cb08-4f86-9071-126361d43aef.png',
-      color: 'from-green-200 to-emerald-200'
     }
   ];
 
