@@ -17,6 +17,11 @@ const MemoryLane: React.FC = () => {
       caption: 'Sweet selfie memories 📸',
       image: '/lovable-uploads/fbc2c807-b566-43e8-a99d-5e7f98b83b38.png',
       color: 'from-blue-200 to-indigo-200'
+    },
+    {
+      caption: 'Romantic evening under the lights ✨',
+      image: '/lovable-uploads/d1f50762-eed0-4f0e-8530-e1033f39ff15.png',
+      color: 'from-purple-200 to-pink-200'
     }
   ];
 

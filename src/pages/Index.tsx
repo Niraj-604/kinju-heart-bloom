@@ -63,11 +63,6 @@ const Index = () => {
         <NepaliLetter />
       </section>
 
-      {/* Poem Section */}
-      <section id="poem" className="py-20">
-        <Poem />
-      </section>
-
       {/* Memory Lane Section */}
       <section id="memories" className="py-20">
         <MemoryLane />
