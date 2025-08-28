@@ -9,18 +9,18 @@ const MusicToggle: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // You can add a music file to public/assets/kinju-theme.mp3
-    // For now, we'll create a simple audio context for demonstration
-    
     if (typeof window !== 'undefined' && !audioRef.current) {
-      // Create a simple audio element for demonstration
-      // In production, you'd load an actual music file
+      // Create YouTube audio iframe (hidden)
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/cNGjD0VG4R8?autoplay=1&loop=1&playlist=cNGjD0VG4R8&controls=0&mute=0&start=0';
+      iframe.style.display = 'none';
+      iframe.allow = 'autoplay';
+      document.body.appendChild(iframe);
+      
+      // Fallback audio element for controls
       audioRef.current = new Audio();
       audioRef.current.loop = true;
       audioRef.current.volume = 0.3;
-      
-      // Note: You would set audioRef.current.src to your music file
-      // audioRef.current.src = '/assets/kinju-theme.mp3';
     }
 
     return () => {
@@ -31,13 +31,12 @@ const MusicToggle: React.FC = () => {
   }, []);
 
   const toggleMusic = () => {
-    if (audioRef.current) {
+    const iframe = document.querySelector('iframe[src*="youtube.com"]') as HTMLIFrameElement;
+    if (iframe) {
       if (isPlaying) {
-        audioRef.current.pause();
+        iframe.style.display = 'none';
       } else {
-        // Note: In a real implementation, you'd have an actual audio file
-        // audioRef.current.play().catch(console.error);
-        console.log('Music would play here with actual audio file');
+        iframe.style.display = 'block';
       }
     }
     setIsPlaying(!isPlaying);

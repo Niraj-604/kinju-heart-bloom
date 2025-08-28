@@ -41,29 +41,72 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-romantic" />
       
+      {/* Animated hearts */}
+      <div className="absolute inset-0">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-rose/20"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              fontSize: `${0.5 + Math.random() * 1.5}rem`,
+            }}
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0.2, 0.8, 0.2],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          >
+            💕
+          </motion.div>
+        ))}
+      </div>
+      
+      {/* Sparkles */}
+      <div className="absolute inset-0">
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-white/30"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              scale: [0, 1, 0],
+              rotate: [0, 180, 360],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              delay: Math.random() * 3,
+            }}
+          >
+            ✨
+          </motion.div>
+        ))}
+      </div>
+      
       {/* Noise overlay */}
       <div className="absolute inset-0 noise-overlay" />
       
       {/* Content */}
       <div className="relative z-10 text-center text-white px-6 max-w-4xl">
         <motion.h1 
-          className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
+          className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          Happy Birthday, Kinju ✨
+          Happy birthday Baulai💋🫀
         </motion.h1>
-        
-        <motion.p 
-          className="text-xl md:text-2xl font-light mb-12 min-h-[2rem] font-body"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-        >
-          {displayedText}
-          <span className="animate-pulse">|</span>
-        </motion.p>
 
         <motion.div 
           className="flex flex-col sm:flex-row gap-6 justify-center"

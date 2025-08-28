@@ -67,10 +67,6 @@ const MemoryLane: React.FC = () => {
                   >
                     {/* Memory content */}
                     <div className="relative z-10">
-                      <h3 className="text-xl font-semibold text-foreground mb-4 font-display">
-                        {memory.caption}
-                      </h3>
-                      
                       {/* Real image */}
                       <div className="w-full h-48 rounded-xl overflow-hidden mb-4">
                         <img 

@@ -9,6 +9,7 @@ import MemoryLane from '@/components/MemoryLane';
 import Gallery from '@/components/Gallery';
 import MusicToggle from '@/components/MusicToggle';
 import FloatingElements from '@/components/FloatingElements';
+import FloatingILoveYou from '@/components/FloatingILoveYou';
 
 const Index = () => {
   const lenisRef = useRef<Lenis | null>(null);
@@ -51,6 +52,7 @@ const Index = () => {
     >
       {/* Global floating elements */}
       <FloatingElements />
+      <FloatingILoveYou />
       
       {/* Music Toggle - Fixed position */}
       <MusicToggle />
