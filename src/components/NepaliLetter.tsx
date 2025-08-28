@@ -52,22 +52,57 @@ const NepaliLetter: React.FC = () => {
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             <div className="space-y-6">
-              {nepaliText.map((line, index) => (
+              <motion.div
+                className="text-center space-y-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
                 <motion.p
-                  key={index}
-                  className={`${
-                    index === 0 
-                      ? 'text-2xl font-semibold text-rose font-display' 
-                      : 'text-lg leading-relaxed text-foreground'
-                  } font-body`}
+                  className="text-2xl md:text-3xl leading-relaxed text-foreground font-body"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
+                  transition={{ delay: 0.2 }}
                 >
-                  {line}
+                  तिम्रो मुस्कानमा फुल्छ मेरो बिहान,<br />
+                  तिम्रो नजरमै सजिन्छ जीवनको जहान।
                 </motion.p>
-              ))}
+                
+                <motion.p
+                  className="text-2xl md:text-3xl leading-relaxed text-foreground font-body"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                >
+                  मौनतामा पनि तिम्रो स्वर सुन्छु म,<br />
+                  सपना हरेकमा तिम्रो तस्वीर खोज्छु म।
+                </motion.p>
+                
+                <motion.p
+                  className="text-2xl md:text-3xl leading-relaxed text-foreground font-body"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 }}
+                >
+                  तिमी बिना अधुरो छु, श्वास जस्तै अड्किएको,<br />
+                  तिमी संगै पूर्ण छु, आकाश जस्तै फैलिएको।
+                </motion.p>
+                
+                <motion.p
+                  className="text-2xl md:text-3xl leading-relaxed text-rose font-display font-semibold"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.8 }}
+                >
+                  माया तिमीलाई शब्दले बताउन सक्दिनँ,<br />
+                  तर हृदयको धड्कनले तिमीलाई सम्झाइरहन्छ।
+                </motion.p>
+              </motion.div>
             </div>
 
             <motion.div
