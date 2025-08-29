@@ -54,31 +54,6 @@ const TypingAnimation = () => {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blush via-background to-champagne relative overflow-hidden">
       {/* Floating hearts background */}
-      <div className="absolute inset-0">
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute text-rose/20"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              fontSize: `${0.8 + Math.random() * 1.2}rem`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.1, 0.6, 0.1],
-              rotate: [0, 360],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-            }}
-          >
-            💖
-          </motion.div>
-        ))}
-      </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <motion.div
