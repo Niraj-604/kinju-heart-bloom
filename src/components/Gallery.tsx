@@ -1,7 +1,16 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Gallery: React.FC = () => {
+  const [flippedCards, setFlippedCards] = useState<number[]>([]);
+
+  const handleCardClick = (index: number) => {
+    setFlippedCards(prev => 
+      prev.includes(index) 
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    );
+  };
   const galleryImages = [
     {
       src: '/lovable-uploads/cd72228d-0853-464b-9c11-d8653cbcccf6.png',
@@ -68,75 +77,122 @@ const Gallery: React.FC = () => {
             Our Gallery
           </h2>
           <p className="text-lg text-foreground/70 font-body">
-            Captured moments of our beautiful journey together
+            Click each photo to reveal a special message 💕
           </p>
         </motion.div>
 
-        {/* Masonry Grid Layout */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4 max-w-7xl mx-auto">
+        {/* Polaroid Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {galleryImages.map((image, index) => (
             <motion.div
               key={index}
-              className="break-inside-avoid mb-4 group relative overflow-hidden rounded-2xl glass"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="relative group cursor-pointer perspective-1000"
+              initial={{ opacity: 0, y: 100, rotateX: -15 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: index * 0.1,
+                ease: "easeOut"
+              }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
+              onClick={() => handleCardClick(index)}
             >
-              <div className="relative overflow-hidden">
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-auto object-cover group-hover:scale-110 transition-all duration-700"
-                />
-                
-                {/* Message overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
-                  <motion.p 
-                    className="text-white text-center px-4 font-body text-sm sm:text-base font-medium"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileHover={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                  >
-                    {image.message}
-                  </motion.p>
+              {/* Polaroid Container */}
+              <motion.div
+                className="relative bg-white p-3 pb-16 rounded-lg shadow-romantic transform-gpu"
+                style={{ 
+                  transform: `rotate(${(Math.random() - 0.5) * 6}deg)`,
+                }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  rotate: 0,
+                  zIndex: 10,
+                  transition: { duration: 0.3 }
+                }}
+                animate={flippedCards.includes(index) ? {
+                  rotateY: [0, 180, 360],
+                  scale: [1, 1.1, 1],
+                } : {}}
+                transition={flippedCards.includes(index) ? {
+                  duration: 1.2,
+                  ease: "easeInOut"
+                } : {}}
+              >
+                {/* Photo */}
+                <div className="relative overflow-hidden rounded-md bg-gray-100">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-48 sm:h-56 lg:h-64 object-cover"
+                    loading="lazy"
+                  />
+                  
+                  {/* Vintage overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-amber-100/20 pointer-events-none" />
                 </div>
+
+                {/* Polaroid caption area */}
+                <div className="absolute bottom-3 left-3 right-3 h-12 flex items-center justify-center">
+                  <AnimatePresence mode="wait">
+                    {!flippedCards.includes(index) ? (
+                      <motion.p
+                        key="instruction"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="text-sm text-gray-600 font-handwriting text-center"
+                      >
+                        Tap to reveal message 💌
+                      </motion.p>
+                    ) : (
+                      <motion.p
+                        key="message"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        className="text-xs text-rose font-medium text-center leading-tight px-1"
+                      >
+                        {image.message}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Tape effect */}
+                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-16 h-6 bg-yellow-100/80 rotate-3 rounded-sm border border-yellow-200/50" />
                 
-                {/* Floating hearts */}
-                <motion.div
-                  className="absolute top-4 right-4 text-rose text-xl opacity-0 group-hover:opacity-100"
-                  animate={{
-                    y: [0, -10, 0],
-                    rotate: [0, 5, -5, 0]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.1
-                  }}
-                >
-                  💕
-                </motion.div>
-                
-                {/* Sparkle effect */}
-                <motion.div
-                  className="absolute top-2 left-2 text-champagne text-sm opacity-0 group-hover:opacity-100"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    rotate: [0, 180, 360]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.2
-                  }}
-                >
-                  ✨
-                </motion.div>
-              </div>
+                {/* Floating hearts when clicked */}
+                <AnimatePresence>
+                  {flippedCards.includes(index) && (
+                    <>
+                      {[...Array(5)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute text-rose"
+                          style={{
+                            left: `${20 + Math.random() * 60}%`,
+                            top: `${20 + Math.random() * 60}%`,
+                          }}
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{ 
+                            scale: [0, 1.5, 0],
+                            opacity: [0, 1, 0],
+                            y: [0, -50],
+                            x: [(Math.random() - 0.5) * 40]
+                          }}
+                          transition={{
+                            duration: 2,
+                            delay: i * 0.1,
+                            ease: "easeOut"
+                          }}
+                        >
+                          💕
+                        </motion.div>
+                      ))}
+                    </>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             </motion.div>
           ))}
         </div>

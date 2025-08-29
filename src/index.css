@@ -113,6 +113,14 @@ All colors MUST be HSL.
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
+  .font-handwriting {
+    font-family: 'Kalam', cursive;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
   /* Custom utility classes */
   .gradient-romantic {
     background: var(--gradient-romantic);

@@ -4,12 +4,14 @@ import { motion } from 'framer-motion';
 import Lenis from 'lenis';
 import Hero from '@/components/Hero';
 import NepaliLetter from '@/components/NepaliLetter';
+import TypingAnimation from '@/components/TypingAnimation';
 import Poem from '@/components/Poem';
 import MemoryLane from '@/components/MemoryLane';
 import Gallery from '@/components/Gallery';
 import MusicToggle from '@/components/MusicToggle';
 import FloatingElements from '@/components/FloatingElements';
 import FloatingILoveYou from '@/components/FloatingILoveYou';
+import EndingSurprise from '@/components/EndingSurprise';
 
 const Index = () => {
   const lenisRef = useRef<Lenis | null>(null);
@@ -60,6 +62,11 @@ const Index = () => {
       {/* Hero Section */}
       <Hero onNavigate={scrollToSection} />
 
+      {/* Typing Animation Section */}
+      <section id="typing" className="py-20">
+        <TypingAnimation />
+      </section>
+
       {/* Nepali Letter Section */}
       <section id="letter" className="py-20">
         <NepaliLetter />
@@ -74,6 +81,9 @@ const Index = () => {
       <section id="gallery" className="py-20">
         <Gallery />
       </section>
+
+      {/* Ending Surprise Section */}
+      <EndingSurprise />
     </motion.div>
   );
 };

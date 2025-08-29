@@ -21,6 +21,7 @@ export default {
 			fontFamily: {
 				display: ['Playfair Display', 'serif'],
 				body: ['Inter', 'sans-serif'],
+				handwriting: ['Kalam', 'cursive'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
