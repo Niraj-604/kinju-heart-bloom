@@ -108,60 +108,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           Happy birthday Baulai💋🫀
         </motion.h1>
 
-        <motion.div 
-          className="flex flex-col sm:flex-row gap-6 justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.5, duration: 0.8 }}
-        >
-          <Button 
-            variant="hero" 
-            size="lg"
-            onClick={() => {
-              celebrate();
-              onNavigate('countdown');
-            }}
-            className="group"
-          >
-            <motion.span
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              🎉
-            </motion.span>
-            Play Surprise
-          </Button>
-          
-          <Button 
-            variant="hero" 
-            size="lg"
-            onClick={() => onNavigate('poem')}
-            className="group"
-          >
-            <motion.span
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              💝
-            </motion.span>
-            Open Poem
-          </Button>
-          
-          <Button 
-            variant="hero" 
-            size="lg"
-            onClick={() => onNavigate('memories')}
-            className="group"
-          >
-            <motion.span
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              📸
-            </motion.span>
-            Memory Lane
-          </Button>
-        </motion.div>
       </div>
 
       {/* Scroll indicator */}
